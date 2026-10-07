@@ -1,0 +1,14 @@
+quality_thresholds:
+  completeness: 0.95
+  validity: 0.95
+  consistency: 0.90
+  uniqueness: 0.95
+  accuracy: 0.90
+  freshness: 0.95
+  geography_quality: 0.90
+  email_quality: 0.95
+
+evidence:
+  generate_manifests: true
+  compute_sha256: true
+  fsync_evidence: true

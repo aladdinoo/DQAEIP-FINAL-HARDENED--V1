@@ -1,0 +1,236 @@
+{
+  "schema": "dqaeip.final_results/3.1.0-hardened",
+  "generated_utc": "2026-10-06T00:00:00Z",
+  "project": "DQAEIP-FINAL-HARDENED-V1",
+  "version": "3.1.0",
+  "release_label": "3.1.0-hardened",
+  "verdict": "GREEN WITH CONDITIONS",
+  "release_identity": {
+    "name": "DQAEIP-FINAL-HARDENED-V1",
+    "package_version": "3.1.0",
+    "internal_hardened_label": "3.1.0-hardened",
+    "frozen_v1_sha256": "daef1ded54c7d3c79898a1ba253be2acd5b6120e18b16b09009fdd7be9fc2276",
+    "execution_boundary": "data_quality_platform.hardening.pipeline.run_validation",
+    "gpg_dependency": "none",
+    "git_runtime_dependency": "none",
+    "cryptographic_key_dependency": "none"
+  },
+  "threat_model": {
+    "filesystem": "operator-controlled",
+    "operator": "trusted",
+    "remote_api": "none",
+    "resource_containment": "deployment-level OS/container controls expected",
+    "evidence_directory": "operator-controlled",
+    "output_csv": "machine-to-machine; not for direct spreadsheet consumption",
+    "cryptographic_authenticity": "tamper-evident by default; externally anchored when protected mode is invoked (OPT-IN)"
+  },
+  "test_suite": {
+    "total": 445,
+    "passed": 437,
+    "failed": 0,
+    "skipped": 8,
+    "skipped_breakdown": {
+      "dl_geography_sp1": 7,
+      "cli_only_artifact": 1
+    },
+    "skipped_classification": "NON-BLOCKING for V1 scope",
+    "duration_seconds": 18.14
+  },
+  "release_gates": {
+    "passed": 17,
+    "total": 17,
+    "overall_verdict": "PASS",
+    "evidence": "evidence/release_gate/final_release_gate.json",
+    "fail_closed": true
+  },
+  "mutation": {
+    "detected": 17,
+    "total": 17,
+    "survived": 0,
+    "score": 1.0,
+    "source_restored_exactly": true,
+    "target": "data_quality_platform/rules/v1_rules.py"
+  },
+  "validation_contract": {
+    "input_columns": 33,
+    "source_columns": 33,
+    "flag_columns": 8,
+    "output_columns": 41,
+    "rules": 8,
+    "rule_version": "1.0.0"
+  },
+  "fresh_1m_validation": {
+    "verified": true,
+    "input_rows": 1000000,
+    "output_rows": 1000000,
+    "source_cells_compared": 33000000,
+    "cell_mismatches": 0,
+    "flag_violations": 0,
+    "rules_applied": 8,
+    "evidence_artifacts": 6,
+    "evidence_root_valid": true,
+    "consistency_checks_passed": 9,
+    "authorization_tamper_rejected": true,
+    "tamper_rejection_stopped_at": "snapshot-hash-mismatch"
+  },
+  "deterministic_replay": {
+    "verified": true,
+    "method": "two independent 1M-row runs of the same input",
+    "output_sha256": "5f695d9dd4c33840571cfbb92a3dabde5866ae196e03bc5d4d67eb83782e2c35",
+    "byte_identical": true,
+    "note": "Deterministic invariant is the OUTPUT CSV (validated data). Evidence files (audit.json, lineage.json, manifest.json) include per-run timestamps; their roots are NOT expected to match across runs."
+  },
+  "evidence_integrity": {
+    "tamper_detection": "VERIFIED — evidence_root.py computes SHA-256 root hash over 6 core artifacts; any modification invalidates the root.",
+    "semantic_consistency": "VERIFIED — 9 cross-artifact checks via evidence_consistency.py.",
+    "core_artifacts": [
+      "manifest.json",
+      "output.csv",
+      "lineage.json",
+      "audit.json",
+      "monitoring.json",
+      "alerts.json"
+    ],
+    "root_file": "evidence_root.json",
+    "default_mode": "TAMPER-EVIDENT (recorded root stored inside the evidence directory)",
+    "protected_mode": "EXTERNAL-ANCHOR (OPT-IN, not invoked by any production caller)",
+    "protected_mode_function": "verify_evidence_root_with_external_anchor",
+    "protected_mode_invoked_by": "tests only (13 tests covering all 7 spec verification points)",
+    "protected_mode_status": "F-003 is mitigated under protected external-anchor mode. Protected mode is OPT-IN and is not automatically invoked by the current CLI, Airflow, or release-gate execution paths.",
+    "external_anchor_trust_requirement": "The expected_root MUST come from an independent/out-of-band trust channel. DQAEIP itself does not protect or generate the external anchor."
+  },
+  "authorization": {
+    "layer": "B",
+    "enforced": true,
+    "model": "operator-asserted (SHA-256 scope comparison via hmac.compare_digest; NOT cryptographically independent)",
+    "scope_fields": [
+      "input_sha256",
+      "schema_fingerprint",
+      "v1_ruleset_sha256",
+      "reference_data_fingerprint",
+      "config_fingerprint",
+      "execution_mode",
+      "software_identity"
+    ],
+    "negative_tests": 13,
+    "negative_tests_pass": true,
+    "fail_closed": true,
+    "cli_uses_hardened_boundary": true,
+    "airflow_uses_hardened_boundary": true,
+    "direct_engine_path": "internal — not a production execution path",
+    "identity_based_authentication": false
+  },
+  "concurrency": {
+    "protection": "os.makedirs(evidence_dir, exist_ok=False) at start of run_validation()",
+    "verified": true,
+    "behavior": "first execution atomically claims the directory; second execution fails closed at stopped_at=evidence-dir-collision",
+    "last_writer_wins": false,
+    "evidence_mixing": false,
+    "dedicated_tests": 6,
+    "live_threaded_test": "verified: 1 winner, 1 fail-closed",
+    "filesystem_assumption": "local filesystem atomicity (mkdir atomicity). Distributed/network filesystems may require additional operational controls."
+  },
+  "dependency_reproducibility": {
+    "production_dependencies_pinned": true,
+    "direct_dependencies": {
+      "pyyaml": "==6.0.3 (requirements.txt) / >=6.0.3,<7.0 (pyproject.toml)"
+    },
+    "build_dependencies": {
+      "setuptools": ">=68.0,<76.0",
+      "wheel": "implicit"
+    },
+    "dev_dependencies": {
+      "pytest": "==9.0.2 (requirements-dev.txt) / >=7.0,<10.0 (pyproject.toml)",
+      "pytest-cov": "==7.0.0 (requirements-dev.txt) / >=4.0,<8.0 (pyproject.toml)"
+    },
+    "python_version_constraint": ">=3.9,<3.13",
+    "verified_on_python": "3.12.14",
+    "clean_venv_install_verified": true,
+    "transitive_dependencies_pinned": false,
+    "transitive_resolution": "pip-controlled (not pinned by DQAEIP)",
+    "statement": "Verified reproducible installation for explicitly pinned direct dependencies; transitive dependency resolution remains pip-controlled."
+  },
+  "pii_protection": {
+    "lineage_stores_row_hashes_only": true,
+    "piimasker_applied_at_lineage_write": true,
+    "pii_leakage_tests": 8,
+    "pii_leakage_tests_pass": true,
+    "scanner_is_heuristic_not_complete_dlp": true,
+    "release_gate_scan": "PASS — no prohibited content in release_gate evidence"
+  },
+  "scale": {
+    "verified_in_memory_rows": 1000000,
+    "memory_profile": "O(N) — engine materializes the full dataset in memory",
+    "historical_attempts_above_1m": "2M and 3.3M previously hit memory limits",
+    "800m_in_memory_claim": false,
+    "production_recommendation": "Large-scale production ingestion should use bounded batches/partitions (e.g., from ClickHouse) rather than loading the complete dataset into memory."
+  },
+  "accepted_residual_risks": {
+    "F-003": {
+      "title": "Evidence forgery under attacker-controlled evidence directory",
+      "severity": "MEDIUM",
+      "classification": "F-003 is mitigated under protected external-anchor mode. Protected mode is OPT-IN and is not automatically invoked by the current CLI, Airflow, or release-gate execution paths.",
+      "description": "Under the operator-controlled-evidence-directory threat model, an attacker with write access to the entire evidence directory can forge a self-consistent evidence set that passes the default TAMPER-EVIDENT verification. The EXTERNALLY ANCHORED verification (verify_evidence_root_with_external_anchor) closes this gap when the operator supplies a 64-char hex expected_root from an out-of-band trust source. Protected mode is OPT-IN and is not automatically invoked by the current CLI, Airflow, or release-gate execution paths. The external anchor's authenticity depends on the operator's out-of-band channel, not on DQAEIP."
+    },
+    "F-004": {
+      "title": "CSV formula injection in output",
+      "severity": "LOW",
+      "classification": "ACCEPTED_RESIDUAL_RISK",
+      "description": "Output CSV preserves source values verbatim per the frozen V1 contract. Formula-trigger characters (e.g., =, +, -, @) may survive. Output is machine-to-machine; do not open in spreadsheet software without sanitization."
+    },
+    "F-005": {
+      "title": "Wall-time and RSS limits not enforced in-process",
+      "severity": "MEDIUM",
+      "classification": "DEPLOYMENT_CONTROL",
+      "description": "max_wall_seconds and max_peak_rss_bytes are declared in ResourceLimits but NOT enforced at the application level. The ExecutionMonitor class exists but is never instantiated by pipeline.run_validation or ValidationEngine.validate. Input-size, row-count, and output-size limits ARE enforced (pre/post-execution). OS/container-level resource controls (ulimit, cgroups, container limits) are required for wall-time and memory containment."
+    }
+  },
+  "limitations": {
+    "LIM-001": {
+      "title": "O(N) memory profile",
+      "classification": "NON-BLOCKING",
+      "description": "Engine materializes the full dataset in memory (id_set, row_lineage_buffer). 1M verified; 2M/3.3M historically hit memory limits."
+    },
+    "LIM-002": {
+      "title": "Airflow runtime not operationally validated",
+      "classification": "OPERATIONAL_MILESTONE",
+      "description": "DAG parses and is structurally verified; calls run_validation; requires grant; no direct engine instantiation. Airflow is NOT installed in this environment. Runtime deployment is an operational prerequisite."
+    },
+    "LIM-003": {
+      "title": "No customer data processed",
+      "classification": "OPERATIONAL_MILESTONE",
+      "description": "Production readiness demonstrated on synthetic data only. First customer-data processing remains an operational acceptance milestone."
+    },
+    "LIM-004": {
+      "title": "DL001-DL015 geography table unavailable",
+      "classification": "NON-BLOCKING",
+      "description": "7 SP1 successor golden tests skipped — external geography evidence not supplied. SP1 is out of V1 scope."
+    },
+    "LIM-005": {
+      "title": "Transitive dependencies not fully pinned",
+      "classification": "NON-BLOCKING",
+      "description": "Only direct dependencies (pyyaml, pytest, pytest-cov, setuptools) are pinned. Transitive resolution remains pip-controlled. A full pip-compile lockfile would be required for exact transitive reproducibility (out of V1 scope)."
+    },
+    "LIM-006": {
+      "title": "External anchor is OPT-IN",
+      "classification": "DOCUMENTATION",
+      "description": "verify_evidence_root_with_external_anchor exists and is verified, but is NOT invoked by any production caller (CLI, Airflow, release gate). Operators wishing to authenticate evidence against an attacker-controlled evidence directory MUST invoke it manually with an out-of-band root."
+    }
+  },
+  "deployment_conditions": [
+    "Configure OS-level resource controls (ulimit/cgroups/container memory and CPU limits) for F-005 wall-time and RSS containment.",
+    "Use a unique --evidence-dir per run; concurrent-run collision prevention is now enforced in-process (first-writer-wins).",
+    "Do not open the output CSV in spreadsheet software if the input may contain attacker-controlled formula-like values (F-004).",
+    "Protect the authorization grant file via filesystem ACLs — anyone with read access can validate; anyone with write access can authorize any input.",
+    "If the threat model includes an attacker with write access to the evidence directory, invoke verify_evidence_root_with_external_anchor(evidence_dir, expected_root, output_csv=...) after each run, supplying expected_root from an out-of-band trust channel.",
+    "Assume local filesystem atomicity for concurrent collision prevention; network filesystems may require additional operational controls.",
+    "Deploy Airflow runtime and verify the DAG executes run_validation successfully (LIM-002).",
+    "Process the first real customer dataset as the operational acceptance milestone (LIM-003)."
+  ],
+  "production_readiness": {
+    "verdict": "GREEN — PRODUCTION READY WITH CONDITIONS",
+    "conditions_are_deployment_only": true,
+    "code_changes_recommended_for_v1": "NONE — no further architectural changes are recommended for V1.",
+    "final_score_out_of_10": 8.4
+  }
+}

@@ -1,0 +1,12 @@
+# DQAEIP test/dev tooling — pinned for reproducible test runs.
+#
+# Use `pip install -r requirements-dev.txt` to install both production
+# and dev dependencies. This is what CI and the release gate use.
+#
+# Verified against DQAEIP 3.1.0-hardened on 2026-10-06.
+
+-r requirements.txt
+
+# Dev tooling — pinned to the verified major versions.
+pytest==9.0.2
+pytest-cov==7.0.0

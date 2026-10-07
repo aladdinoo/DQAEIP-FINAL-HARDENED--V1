@@ -1,0 +1,109 @@
+{
+  "run_id": "1M_run2",
+  "events": [
+    {
+      "event_type": "run_started",
+      "run_id": "1M_run2",
+      "timestamp": "2026-10-06T10:31:01.395713+00:00",
+      "details": {
+        "source": "/home/z/my-project/repo/DQAEIP-FINAL-HARDENED-V1/evidence/1M_final/run2/.snapshots/.input_snapshot.32613b726c184b0baae8b3d6ebb32108.csv"
+      }
+    },
+    {
+      "event_type": "schema_validated",
+      "run_id": "1M_run2",
+      "timestamp": "2026-10-06T10:31:01.395924+00:00",
+      "details": {
+        "schema_hash": "",
+        "errors": []
+      }
+    },
+    {
+      "event_type": "rules_loaded",
+      "run_id": "1M_run2",
+      "timestamp": "2026-10-06T10:31:01.396036+00:00",
+      "details": {
+        "rule_count": 8,
+        "registry_hash": "2b9130fdcc656d32191b122e6ea863c3dc228f20679827ba7dde7f4749273192"
+      }
+    },
+    {
+      "event_type": "validation_started",
+      "run_id": "1M_run2",
+      "timestamp": "2026-10-06T10:31:01.396051+00:00",
+      "details": {
+        "row_count": 0
+      }
+    },
+    {
+      "event_type": "reconciliation_completed",
+      "run_id": "1M_run2",
+      "timestamp": "2026-10-06T10:31:56.551813+00:00",
+      "details": {
+        "passed": true,
+        "details": {
+          "passed": true,
+          "errors": [],
+          "input_row_count": 1000000,
+          "output_row_count": 1000000,
+          "flag_counts": {
+            "first_name_cleaning_candidate": 105872,
+            "last_name_cleaning_candidate": 70087,
+            "name_cleaning_candidate": 30355,
+            "email_blank": 80000,
+            "email_syntax_failure": 70000,
+            "proposed_email_export_eligible": 850000,
+            "zip_state_assessable": 1000000,
+            "geography_mismatch_candidate": 49664
+          }
+        }
+      }
+    },
+    {
+      "event_type": "monitoring_completed",
+      "run_id": "1M_run2",
+      "timestamp": "2026-10-06T10:31:56.551895+00:00",
+      "details": {
+        "overall_score": 0.9156,
+        "sla_passed": false
+      }
+    },
+    {
+      "event_type": "validation_completed",
+      "run_id": "1M_run2",
+      "timestamp": "2026-10-06T10:31:56.551959+00:00",
+      "details": {
+        "input_rows": 1000000,
+        "output_rows": 1000000,
+        "flag_counts": {
+          "first_name_cleaning_candidate": 105872,
+          "last_name_cleaning_candidate": 70087,
+          "name_cleaning_candidate": 30355,
+          "email_blank": 80000,
+          "email_syntax_failure": 70000,
+          "proposed_email_export_eligible": 850000,
+          "zip_state_assessable": 1000000,
+          "geography_mismatch_candidate": 49664
+        },
+        "duration_seconds": 47.55437397956848
+      }
+    },
+    {
+      "event_type": "output_written",
+      "run_id": "1M_run2",
+      "timestamp": "2026-10-06T10:31:56.551963+00:00",
+      "details": {
+        "path": "/home/z/my-project/repo/DQAEIP-FINAL-HARDENED-V1/data/generated/1M_run/output_1M_run2.csv",
+        "rows": 1000000
+      }
+    },
+    {
+      "event_type": "lineage_recorded",
+      "run_id": "1M_run2",
+      "timestamp": "2026-10-06T10:31:56.561070+00:00",
+      "details": {
+        "path": "/home/z/my-project/repo/DQAEIP-FINAL-HARDENED-V1/evidence/1M_final/run2/lineage.json"
+      }
+    }
+  ]
+}

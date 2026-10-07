@@ -1,0 +1,13 @@
+# DQAEIP production dependencies — pinned for reproducible installation.
+#
+# This file is the single source of truth for clean installs. It mirrors
+# the production subset of pyproject.toml [project.dependencies] with
+# exact resolved versions so a fresh `pip install -r requirements.txt`
+# reproduces the verified runtime.
+#
+# Verified against DQAEIP 3.1.0-hardened on 2026-10-06.
+
+# Runtime: PyYAML is used only by data_quality_platform/config/settings.py
+# to parse configs/quality.yaml. 6.0.3 is the verified production
+# version; <7.0 excludes any future breaking-change major release.
+pyyaml==6.0.3

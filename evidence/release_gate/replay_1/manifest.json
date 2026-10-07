@@ -1,0 +1,97 @@
+{
+  "manifest_type": "success",
+  "run_id": "replay_1",
+  "timestamp": "2026-10-06T17:21:15.552147+00:00",
+  "source_row_count": 500,
+  "output_row_count": 500,
+  "schema_hash": "47813dbee947c871971a4841bd4aef325530a6886b96a6f77bba6af86c5031fa",
+  "rule_hashes": {
+    "first_name_cleaning_candidate": "575e9d4588334d364bdcfae6ca3c44b9bf35120a371b78fecfde8ee19373ca69",
+    "last_name_cleaning_candidate": "c553b7f4484b54135e2b84c6b37a84b15df328544256577984e61f6ede900122",
+    "name_cleaning_candidate": "3a128ec85d196cd3a42720347ba8790f5fbf0f386bd617e4ec508ee050b661c8",
+    "email_blank": "157ccc2127334bac03534f80868a3d7ea3bc8df77c132e8c237874321164f2bc",
+    "email_syntax_failure": "5caaba13a73c90c5aac7a52cf756713c8ecc3dc73d30c2949206efa8d2b712f7",
+    "proposed_email_export_eligible": "6732e6bfed6fae3c23439f0e69b5c39e2843a5b74f2f8f3fdaf6ad5d536da98c",
+    "zip_state_assessable": "e7730c1b848f32790a56bfb79f7ef5dbc8c88b3919f9903421adc7dde5393885",
+    "geography_mismatch_candidate": "7967b59ef7a14b83284a12eb298d63c6140e0837bfafdf3ac4e758baf74c4e93"
+  },
+  "sql_hashes": {
+    "first_name_cleaning_candidate": "7ef1a683334edce555912771e2338c4f851a5c6b6c618eeb8778b9ea996afc0b",
+    "last_name_cleaning_candidate": "c4778d71689f6602900112e3bb54a3c956bef9fa9ebceb5d43868d7292d051a7",
+    "name_cleaning_candidate": "79b13318092be08d7f6e0cbd6a87196c8d68919118ff03e5fdd1a784d1353921",
+    "email_blank": "cadc95e7e0ad95386a86a716ae4db9ef59235a6fc4a8840616b34264b22d8658",
+    "email_syntax_failure": "a486ed707dc117dcf5843ae55f06f82eeed022e983bfb4d92ec8299a20ef245b",
+    "proposed_email_export_eligible": "a8f131220ef81c6e8d370e64d876dcc6eac2429bb6fb040fda335049e16220c0",
+    "zip_state_assessable": "88d6ecaf72ee158cebb9c84e281619cb400105b072b2a8b59a697f97ca925be4",
+    "geography_mismatch_candidate": "8afc105c1ff69eb95ad397150196491e514bb821efaf87475348562b161c8868"
+  },
+  "flag_counts": {
+    "first_name_cleaning_candidate": 57,
+    "last_name_cleaning_candidate": 37,
+    "name_cleaning_candidate": 16,
+    "email_blank": 40,
+    "email_syntax_failure": 35,
+    "proposed_email_export_eligible": 425,
+    "zip_state_assessable": 500,
+    "geography_mismatch_candidate": 25
+  },
+  "reconciliation": {
+    "passed": true,
+    "errors": [],
+    "input_row_count": 500,
+    "output_row_count": 500,
+    "flag_counts": {
+      "first_name_cleaning_candidate": 57,
+      "last_name_cleaning_candidate": 37,
+      "name_cleaning_candidate": 16,
+      "email_blank": 40,
+      "email_syntax_failure": 35,
+      "proposed_email_export_eligible": 425,
+      "zip_state_assessable": 500,
+      "geography_mismatch_candidate": 25
+    }
+  },
+  "safety_invariants": [
+    "input_row_count == output_row_count",
+    "all_flags_are_0_or_1",
+    "source_columns_unchanged",
+    "no_lost_rows",
+    "no_duplicated_rows"
+  ],
+  "lineage_reference": "/tmp/dqaeip_v3_verify/DQAEIP-FINAL-HARDENED-V1-3.1.0/evidence/release_gate/replay_1/lineage.json",
+  "monitoring_score": 0.914,
+  "monitoring_scores": {
+    "completeness": 0.9,
+    "validity": 0.85,
+    "consistency": 0.95,
+    "uniqueness": 1.0,
+    "accuracy": 0.812,
+    "freshness": 1.0,
+    "geography_quality": 0.95,
+    "email_quality": 0.85
+  },
+  "sla_results": {
+    "completeness": false,
+    "validity": false,
+    "consistency": true,
+    "uniqueness": true,
+    "accuracy": false,
+    "freshness": true,
+    "geography_quality": true,
+    "email_quality": false
+  },
+  "generated_files": {
+    "output": "/tmp/dqaeip_v3_verify/DQAEIP-FINAL-HARDENED-V1-3.1.0/data/generated/release_replay_1_out.csv",
+    "lineage": "/tmp/dqaeip_v3_verify/DQAEIP-FINAL-HARDENED-V1-3.1.0/evidence/release_gate/replay_1/lineage.json",
+    "audit": "/tmp/dqaeip_v3_verify/DQAEIP-FINAL-HARDENED-V1-3.1.0/evidence/release_gate/replay_1/audit.json",
+    "monitoring": "/tmp/dqaeip_v3_verify/DQAEIP-FINAL-HARDENED-V1-3.1.0/evidence/release_gate/replay_1/monitoring.json",
+    "alerts": "/tmp/dqaeip_v3_verify/DQAEIP-FINAL-HARDENED-V1-3.1.0/evidence/release_gate/replay_1/alerts.json"
+  },
+  "file_hashes": {
+    "output": "41c19e46f369655d3532547c676ead8d5e6e6ccc498b6e65fe8063a5a099160e",
+    "lineage": "4a5ac602197e297e4330400a356127e195b50a29677cb34bd1d5941fe55c5357",
+    "audit": "0e63f23dc5aa77cc54dc42a2bc20e553d62c41f51ec530a7194087001b72e1c2",
+    "monitoring": "6aac51ec63c3aa17bad2c73020577bf3e707db778dc5a0e3c84124ad3b48d7f6",
+    "alerts": "cb2db45a5eb2e717ba10d2e142c48c759b938baa914f4ef0761ca0fa2e1d14b7"
+  }
+}

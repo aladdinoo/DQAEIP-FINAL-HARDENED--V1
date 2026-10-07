@@ -1,0 +1,88 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Testing
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Generated test data
+data/generated/*.csv
+data/generated/*.json
+
+# Runtime evidence
+evidence/final_1k/
+evidence/final_test/
+evidence/q20_cli/
+evidence/rt_1k/
+evidence/mutation_testing/
+evidence/neg_battery/
+evidence/test_q9/
+
+# Keep official verification evidence
+!evidence/verification/
+!evidence/verification/**
+
+# Keep benchmark evidence
+!evidence/benchmarks/
+!evidence/benchmarks/**
+
+# Airflow runtime logs
+airflow/logs/
+
+# FINAL 5M validation task: large synthetic datasets are hash+command anchored
+# in evidence/final_5m_execution/, never committed (multi-GB files)
+data/generated/final_5m/
+data/generated/final_3m/
+
+# Enterprise release gate: regenerable replay work products (results recorded in final_release_gate.json)
+evidence/release_gate/replay_work/
+evidence/release_gate/replay_work_neg/
+evidence/release_gate/repro_check/replay_work/
+evidence/release_gate/repro_check/replay_work_neg/
+
+# M-3: test sandbox artifacts — not release content
+evidence/forensic_audit_sandbox_in/
+o_escaped.txt
+
+# B-8 private key protection — NEVER commit private key material
+*.asc
+*.key
+*.gpg
+.gnupg-release-signing/
+DQAEIP_RELEASE_PRIVATE_KEY*

@@ -1,0 +1,21 @@
+case_id,description,id,email_address,first_name,last_name,state,zip,expected_zip_state_assessable,expected_geography_mismatch_candidate
+GEO001,NY with valid 10001,1,john@test.com,John,Smith,NY,10001,1,0
+GEO002,CA with valid 90001,2,jane@test.com,Jane,Doe,CA,90001,1,0
+GEO003,TX with valid 77001,3,bob@test.com,Bob,Jones,TX,77001,1,0
+GEO004,CA with FL zip 32001,4,carol@test.com,Carol,Wilson,CA,32001,1,1
+GEO005,NY with CA zip 90210,5,dave@test.com,Dave,Brown,NY,90210,1,1
+GEO006,FL with NY zip 10001,6,eva@test.com,Eva,Garcia,FL,10001,1,1
+GEO007,Empty state,7,frank@test.com,Frank,Miller,,90001,0,0
+GEO008,Empty zip,8,grace@test.com,Grace,Davis,TX,,0,0
+GEO009,Unknown state XX,9,hank@test.com,Hank,Anderson,XX,12345,0,0
+GEO010,AL with valid 35xxx,10,iris@test.com,Iris,Thomas,AL,35203,1,0
+GEO011,AK with 99xxx,11,jack@test.com,Jack,Jackson,AK,99501,1,0
+GEO012,HI with 96xxx,12,kate@test.com,Kate,White,HI,96701,1,0
+GEO013,DC with 20xxx,13,leo@test.com,Leo,Harris,DC,20001,1,0
+GEO014,WA with 98xxx valid,14,mia@test.com,Mia,Martin,WA,98001,1,0
+GEO015,OR with 97xxx valid,15,noah@test.com,Noah,Robinson,OR,97201,1,0
+GEO016,CO with 80xxx valid,16,olivia@test.com,Olivia,Clark,CO,80202,1,0
+GEO017,AZ with 85xxx valid,17,paul@test.com,Paul,Lewis,AZ,85001,1,0
+GEO018,NV with 89xxx valid,18,quinn@test.com,Quinn,Walker,NV,89101,1,0
+GEO019,NM with 87xxx valid,19,rita@test.com,Rita,Allen,NM,87101,1,0
+GEO020,CT with 06xxx valid,20,sam@test.com,Sam,Young,CT,06101,1,0

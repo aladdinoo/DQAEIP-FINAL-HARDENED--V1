@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-10-05T16:30:10.049953+00:00",
+  "results": [
+    {
+      "check": "imports",
+      "status": "PASS",
+      "evidence": "imports OK"
+    },
+    {
+      "check": "rules",
+      "status": "PASS",
+      "evidence": "8 rules, valid"
+    },
+    {
+      "check": "schema",
+      "status": "PASS",
+      "evidence": "schema validator accepts 33 columns"
+    },
+    {
+      "check": "contracts",
+      "status": "PASS",
+      "evidence": "33 source + 8 flag = 41 output"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68.0,<76.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dqaeip"
+version = "3.1.0"
+description = "Data Quality Assurance & Evidence Integrity Platform (DQAEIP) — flag-only data quality validation for 33-column consumer datasets"
+requires-python = ">=3.9,<3.13"
+license = {text = "MIT"}
+dependencies = [
+    # Production runtime dependencies — pinned for reproducible install.
+    # PyYAML 6.x is the verified line; <7 excludes any future
+    # breaking-change major release.
+    "pyyaml>=6.0.3,<7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    # Test/dev tooling. Upper bounds prevent surprise breakage from new
+    # major versions; minor and patch updates within the pinned major
+    # are allowed.
+    "pytest>=7.0,<10.0",
+    "pytest-cov>=4.0,<8.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["data_quality_platform*", "runner*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "integration: integration tests",
+    "runtime: runtime verification tests",
+    "slow: slow tests",
+]

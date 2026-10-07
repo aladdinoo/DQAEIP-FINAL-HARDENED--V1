@@ -1,0 +1,97 @@
+{
+  "manifest_type": "success",
+  "run_id": "1M_run1",
+  "timestamp": "2026-10-06T10:30:55.966173+00:00",
+  "source_row_count": 1000000,
+  "output_row_count": 1000000,
+  "schema_hash": "47813dbee947c871971a4841bd4aef325530a6886b96a6f77bba6af86c5031fa",
+  "rule_hashes": {
+    "first_name_cleaning_candidate": "575e9d4588334d364bdcfae6ca3c44b9bf35120a371b78fecfde8ee19373ca69",
+    "last_name_cleaning_candidate": "c553b7f4484b54135e2b84c6b37a84b15df328544256577984e61f6ede900122",
+    "name_cleaning_candidate": "3a128ec85d196cd3a42720347ba8790f5fbf0f386bd617e4ec508ee050b661c8",
+    "email_blank": "157ccc2127334bac03534f80868a3d7ea3bc8df77c132e8c237874321164f2bc",
+    "email_syntax_failure": "5caaba13a73c90c5aac7a52cf756713c8ecc3dc73d30c2949206efa8d2b712f7",
+    "proposed_email_export_eligible": "6732e6bfed6fae3c23439f0e69b5c39e2843a5b74f2f8f3fdaf6ad5d536da98c",
+    "zip_state_assessable": "e7730c1b848f32790a56bfb79f7ef5dbc8c88b3919f9903421adc7dde5393885",
+    "geography_mismatch_candidate": "7967b59ef7a14b83284a12eb298d63c6140e0837bfafdf3ac4e758baf74c4e93"
+  },
+  "sql_hashes": {
+    "first_name_cleaning_candidate": "7ef1a683334edce555912771e2338c4f851a5c6b6c618eeb8778b9ea996afc0b",
+    "last_name_cleaning_candidate": "c4778d71689f6602900112e3bb54a3c956bef9fa9ebceb5d43868d7292d051a7",
+    "name_cleaning_candidate": "79b13318092be08d7f6e0cbd6a87196c8d68919118ff03e5fdd1a784d1353921",
+    "email_blank": "cadc95e7e0ad95386a86a716ae4db9ef59235a6fc4a8840616b34264b22d8658",
+    "email_syntax_failure": "a486ed707dc117dcf5843ae55f06f82eeed022e983bfb4d92ec8299a20ef245b",
+    "proposed_email_export_eligible": "a8f131220ef81c6e8d370e64d876dcc6eac2429bb6fb040fda335049e16220c0",
+    "zip_state_assessable": "88d6ecaf72ee158cebb9c84e281619cb400105b072b2a8b59a697f97ca925be4",
+    "geography_mismatch_candidate": "8afc105c1ff69eb95ad397150196491e514bb821efaf87475348562b161c8868"
+  },
+  "flag_counts": {
+    "first_name_cleaning_candidate": 105872,
+    "last_name_cleaning_candidate": 70087,
+    "name_cleaning_candidate": 30355,
+    "email_blank": 80000,
+    "email_syntax_failure": 70000,
+    "proposed_email_export_eligible": 850000,
+    "zip_state_assessable": 1000000,
+    "geography_mismatch_candidate": 49664
+  },
+  "reconciliation": {
+    "passed": true,
+    "errors": [],
+    "input_row_count": 1000000,
+    "output_row_count": 1000000,
+    "flag_counts": {
+      "first_name_cleaning_candidate": 105872,
+      "last_name_cleaning_candidate": 70087,
+      "name_cleaning_candidate": 30355,
+      "email_blank": 80000,
+      "email_syntax_failure": 70000,
+      "proposed_email_export_eligible": 850000,
+      "zip_state_assessable": 1000000,
+      "geography_mismatch_candidate": 49664
+    }
+  },
+  "safety_invariants": [
+    "input_row_count == output_row_count",
+    "all_flags_are_0_or_1",
+    "source_columns_unchanged",
+    "no_lost_rows",
+    "no_duplicated_rows"
+  ],
+  "lineage_reference": "/home/z/my-project/repo/DQAEIP-FINAL-HARDENED-V1/evidence/1M_final/run1/lineage.json",
+  "monitoring_score": 0.9156,
+  "monitoring_scores": {
+    "completeness": 0.9,
+    "validity": 0.85,
+    "consistency": 0.9503,
+    "uniqueness": 1.0,
+    "accuracy": 0.824,
+    "freshness": 1.0,
+    "geography_quality": 0.9503,
+    "email_quality": 0.85
+  },
+  "sla_results": {
+    "completeness": false,
+    "validity": false,
+    "consistency": true,
+    "uniqueness": true,
+    "accuracy": false,
+    "freshness": true,
+    "geography_quality": true,
+    "email_quality": false
+  },
+  "generated_files": {
+    "output": "/home/z/my-project/repo/DQAEIP-FINAL-HARDENED-V1/data/generated/1M_run/output_1M_run1.csv",
+    "lineage": "/home/z/my-project/repo/DQAEIP-FINAL-HARDENED-V1/evidence/1M_final/run1/lineage.json",
+    "audit": "/home/z/my-project/repo/DQAEIP-FINAL-HARDENED-V1/evidence/1M_final/run1/audit.json",
+    "monitoring": "/home/z/my-project/repo/DQAEIP-FINAL-HARDENED-V1/evidence/1M_final/run1/monitoring.json",
+    "alerts": "/home/z/my-project/repo/DQAEIP-FINAL-HARDENED-V1/evidence/1M_final/run1/alerts.json"
+  },
+  "file_hashes": {
+    "output": "5f695d9dd4c33840571cfbb92a3dabde5866ae196e03bc5d4d67eb83782e2c35",
+    "lineage": "b5964216be78227930e9d41750c220737283a928a29c4f6354f497c33b523441",
+    "audit": "4624fc5f0520d4645fb94ef72f649c0fcbefd9252f62b7d1918246f877a55080",
+    "monitoring": "c51bdccab5a31528ae6b33d1ff43e2769c6a37aaff46f49554b89357fc573f10",
+    "alerts": "b5fc130b5a7b5db0c74adc3eebae5922df823561dfb493cf09f1c0d8bd1cfb6d"
+  }
+}

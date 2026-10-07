@@ -1,0 +1,242 @@
+{
+  "release_gate": "scripts/release_gate.py",
+  "gate_version": "3.1.0-hardened",
+  "generated_utc": "2026-10-06T17:22:00Z",
+  "fail_closed_statement": "A gate result is PASS only when its own evidence proves it. Missing evidence, unreadable evidence, or any exception is FAIL \u2014 never a skip. The overall verdict is PASS only when every gate PASSES.",
+  "gates": [
+    {
+      "gate": "repository_structure",
+      "status": "PASS",
+      "evidence": "all required files present",
+      "duration_seconds": 0.0,
+      "details": {
+        "required_count": 19,
+        "missing": []
+      }
+    },
+    {
+      "gate": "core_imports",
+      "status": "PASS",
+      "evidence": "all core imports succeed",
+      "duration_seconds": 0.1,
+      "details": {
+        "rule_count": 8
+      }
+    },
+    {
+      "gate": "frozen_v1_integrity",
+      "status": "PASS",
+      "evidence": "v1_rules.py SHA-256 verified",
+      "duration_seconds": 0.0,
+      "details": {
+        "expected": "daef1ded54c7d3c79898a1ba253be2acd5b6120e18b16b09009fdd7be9fc2276",
+        "actual": "daef1ded54c7d3c79898a1ba253be2acd5b6120e18b16b09009fdd7be9fc2276",
+        "path": "/tmp/dqaeip_v3_verify/DQAEIP-FINAL-HARDENED-V1-3.1.0/data_quality_platform/rules/v1_rules.py"
+      }
+    },
+    {
+      "gate": "unit_tests",
+      "status": "PASS",
+      "evidence": "278 passed / 0 skipped / 0 failed",
+      "duration_seconds": 5.8,
+      "details": {
+        "path": "/tmp/dqaeip_v3_verify/DQAEIP-FINAL-HARDENED-V1-3.1.0/tests/unit",
+        "exit_code": 0,
+        "passed": 278,
+        "failed": 0,
+        "skipped": 0,
+        "output_excerpt": "........................................................................ [ 25%]\n........................................................................ [ 51%]\n........................................................................ [ 77%]\n..............................................................           [100%]\n278 passed in 3.56s\n"
+      }
+    },
+    {
+      "gate": "contract_tests",
+      "status": "PASS",
+      "evidence": "22 passed / 0 failed",
+      "duration_seconds": 2.41,
+      "details": {
+        "path": "/tmp/dqaeip_v3_verify/DQAEIP-FINAL-HARDENED-V1-3.1.0/tests/contract",
+        "exit_code": 0,
+        "passed": 22,
+        "failed": 0,
+        "skipped": 0,
+        "output_excerpt": "......................                                                   [100%]\n22 passed in 0.19s\n"
+      }
+    },
+    {
+      "gate": "integration_tests",
+      "status": "PASS",
+      "evidence": "24 passed / 0 failed",
+      "duration_seconds": 3.72,
+      "details": {
+        "path": "/tmp/dqaeip_v3_verify/DQAEIP-FINAL-HARDENED-V1-3.1.0/tests/integration",
+        "exit_code": 0,
+        "passed": 24,
+        "failed": 0,
+        "skipped": 0,
+        "output_excerpt": "........................                                                 [100%]\n24 passed in 1.51s\n"
+      }
+    },
+    {
+      "gate": "golden_tests",
+      "status": "PASS",
+      "evidence": "25 passed / 7 skipped / 0 failed",
+      "duration_seconds": 2.57,
+      "details": {
+        "path": "/tmp/dqaeip_v3_verify/DQAEIP-FINAL-HARDENED-V1-3.1.0/tests/golden",
+        "exit_code": 0,
+        "passed": 25,
+        "failed": 0,
+        "skipped": 7,
+        "output_excerpt": "sssssss.........................                                         [100%]\n25 passed, 7 skipped in 0.34s\n"
+      }
+    },
+    {
+      "gate": "property_tests",
+      "status": "PASS",
+      "evidence": "9 passed / 0 failed",
+      "duration_seconds": 12.87,
+      "details": {
+        "path": "/tmp/dqaeip_v3_verify/DQAEIP-FINAL-HARDENED-V1-3.1.0/tests/property",
+        "exit_code": 0,
+        "passed": 9,
+        "failed": 0,
+        "skipped": 0,
+        "output_excerpt": ".........                                                                [100%]\n9 passed in 10.63s\n"
+      }
+    },
+    {
+      "gate": "safety_tests",
+      "status": "PASS",
+      "evidence": "72 passed / 0 failed",
+      "duration_seconds": 4.39,
+      "details": {
+        "path": "/tmp/dqaeip_v3_verify/DQAEIP-FINAL-HARDENED-V1-3.1.0/tests/safety",
+        "exit_code": 0,
+        "passed": 72,
+        "failed": 0,
+        "skipped": 1,
+        "output_excerpt": "................................................................s....... [ 98%]\n.                                                                        [100%]\n72 passed, 1 skipped in 2.16s\n"
+      }
+    },
+    {
+      "gate": "hardening_tests",
+      "status": "PASS",
+      "evidence": "no hardening tests directory",
+      "duration_seconds": 0.0
+    },
+    {
+      "gate": "differential_validation",
+      "status": "PASS",
+      "evidence": "13 consistency tests green",
+      "duration_seconds": 2.65,
+      "details": {
+        "path": "/tmp/dqaeip_v3_verify/DQAEIP-FINAL-HARDENED-V1-3.1.0/tests/unit/test_rule_oracle_consistency.py",
+        "exit_code": 0,
+        "passed": 13,
+        "failed": 0,
+        "skipped": 0,
+        "output_excerpt": ".............                                                            [100%]\n13 passed in 0.44s\n"
+      }
+    },
+    {
+      "gate": "deterministic_replay",
+      "status": "PASS",
+      "evidence": "byte-identical replay verified",
+      "duration_seconds": 0.14,
+      "details": {
+        "output_sha256_run1": "41c19e46f369655d3532547c676ead8d5e6e6ccc498b6e65fe8063a5a099160e",
+        "output_sha256_run2": "41c19e46f369655d3532547c676ead8d5e6e6ccc498b6e65fe8063a5a099160e",
+        "byte_identical": true
+      }
+    },
+    {
+      "gate": "evidence_validation",
+      "status": "PASS",
+      "evidence": "root verified + 9 consistency checks",
+      "duration_seconds": 0.0,
+      "details": {
+        "evidence_dir": "/tmp/dqaeip_v3_verify/DQAEIP-FINAL-HARDENED-V1-3.1.0/evidence/release_gate/replay_1",
+        "root_verified": true,
+        "root_details": {
+          "root_sha256": "f375286416e79cf61a82d4c94ce51b0074b9425ca3e1b592a2879c3d584281d8",
+          "present_artifacts": [
+            "manifest.json",
+            "output.csv",
+            "lineage.json",
+            "audit.json",
+            "monitoring.json",
+            "alerts.json"
+          ],
+          "absent_artifacts": []
+        },
+        "consistency_valid": true,
+        "consistency_issues": [],
+        "checks_performed": [
+          "required_files_exist",
+          "json_parseable",
+          "manifest_schema",
+          "run_id_consistency",
+          "row_count_agreement",
+          "flag_count_agreement",
+          "verdict_agreement",
+          "lineage_serialization",
+          "referenced_artifacts"
+        ]
+      }
+    },
+    {
+      "gate": "pii_evidence_scan",
+      "status": "PASS",
+      "evidence": "no prohibited content in release_gate evidence",
+      "duration_seconds": 0.08,
+      "details": {
+        "findings_count": 0,
+        "findings": []
+      }
+    },
+    {
+      "gate": "negative_battery",
+      "status": "PASS",
+      "evidence": "tampered scope rejected (fail-closed)",
+      "duration_seconds": 0.0,
+      "details": {
+        "verdict": "HARDENED_EXECUTION_FAIL",
+        "stopped_at": "snapshot-hash-mismatch",
+        "reasons": [
+          "input snapshot SHA-256 does not match the granted scope; authorization rejected"
+        ]
+      }
+    },
+    {
+      "gate": "no_gpg_git_dependency",
+      "status": "PASS",
+      "evidence": "no GPG/Git/ClickHouse/E1 patterns in production code",
+      "duration_seconds": 0.02,
+      "details": {
+        "findings_count": 0,
+        "findings": []
+      }
+    },
+    {
+      "gate": "mutation_testing",
+      "status": "PASS",
+      "evidence": "17/17 mutants detected, score 1.0",
+      "duration_seconds": 44.61,
+      "details": {
+        "mutants_total": 17,
+        "mutants_detected": 17,
+        "mutants_survived": 0,
+        "mutation_score": 1.0,
+        "source_restored_exactly": true
+      }
+    }
+  ],
+  "gate_count": 17,
+  "gate_counts": {
+    "pass": 17,
+    "fail": 0
+  },
+  "failures": [],
+  "overall_verdict": "PASS",
+  "total_duration_seconds": 79.39
+}
